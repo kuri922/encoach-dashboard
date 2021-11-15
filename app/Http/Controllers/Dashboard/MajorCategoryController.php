@@ -15,6 +15,7 @@ class MajorCategoryController extends Controller
      */
     public function index()
     {
+    dump('test');
         $major_categories = MajorCategory :: paginate(15);
         
         return view('dashboard.major_categories.index' , compact('major_categories'));
@@ -39,18 +40,18 @@ class MajorCategoryController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'name' => 'required | unique : major_categories',
+            'name' => 'required'
         ],
         [
             'name.required' => '親カテゴリ名は必須です。',
-            'name.unique' => '親カテゴリ名「' . $request->input('name') . '」は登録済みです。',
+            
         ]);
 
         $major_category = new MajorCategory( );
         $major_category -> name = $request -> input('name');
         $major_category -> save( );
 
-        require redirect("/dashboard/major_categories");
+        return redirect("/dashboard/major_categories");
 
         
     }
@@ -86,15 +87,15 @@ class MajorCategoryController extends Controller
      */
     public function update(Request $request,  MajorCategory $major_category)
     {
-        $request -> validate([
-            'name' => 'required | unique : major_categories',
+        
+         $request -> validate([
+         'name' => 'required'
         ],
         [
             'name.required' => '親カテゴリ名は必須です。',
-            'name.unique' => '親カテゴリ名「' . $request->input('name') . '」は登録済みです。',
         ]);
-
-     
+       
+        $major_category1 = MajorCategory :: find($major_category -> id);
         $major_category -> name = $request -> input('name');
         $major_category -> update( );
 
