@@ -24,8 +24,12 @@
 
     <h2>顧客管理</h2>
     <div class="d-flex flex-column">
-        <label class="encoach-sidebar-category-label">顧客一覧</label>
-
+    <label class="encoach-sidebar-category-label">
+    <a href="/dashboard/users">顧客一覧</a>
+    </label>
+    <label class="encoach-sidebar-category-label">
+    <a href="/dashboard/admins">管理者一覧</a>
+    </label>
     </div>
 
     
