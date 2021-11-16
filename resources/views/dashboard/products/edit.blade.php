@@ -16,7 +16,7 @@
 
     <hr>
 
-    <form method="POST" action="/dashboard/products/{{ $product->id }}" class="mb-5">
+    <form method="POST" action="/dashboard/products/{{ $product->id }}" class="mb-5" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="PUT">
         <div class="form-inline mt-4 mb-4 row">
@@ -39,12 +39,36 @@
                 @endforeach
             </select>
         </div>
+
+        <div class="form-inline mt-4 mb-4 row">
+            <label class="col-2 d-flex justify-content-start">画像</label>
+            @if($product -> image !==null)
+            <img src="{{ asset('storage/products/'.$product) }}" id="product-image-preview" class="img-fluid w-25">
+            @endif
+            <div class="d-flex flex-colimn ml-2">
+                
+                <label for="product-image" class="btn encoach-submit-button">画像を選択</label>
+                <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
+                <small class="mb-3 mx-4">600px × 600px推奨</small>
+            </div>
+        </div>
+
+        <div class="form-inline mt-4 mb-4 row">
+                <label for="product-price" class="col-2 d-flex justify-content-start">オススメ?</label>
+            @if ($product->recommend_flag)
+                <input type="checkbox" name="recommend" id="product-recommend" class="samazon-check-box" checked>
+            @else
+                <input type="checkbox" name="recommend" id="product-recommend" class="encoach-check-box">
+            @endif
+        </div>
+
+
         <div class="form-inline mt-4 mb-4 row">
             <label for="product-description" class="col-2 d-flex justify-content-start align-self-start">商品説明</label>
             <textarea name="description" id="product-description" class="form-control col-8" rows="10">{{ $product->description }}</textarea>
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="w-25 btn samazon-submit-button">更新</button>
+            <button type="submit" class="w-25 btn encoach-submit-button">更新</button>
         </div>
     </form>
 
@@ -52,4 +76,16 @@
         <a href="/dashboard/products">商品一覧に戻る</a>
     </div>
 </div>
+
+<script type="text/javascript">
+     function handleImage(image) {
+         let reader = new FileReader();
+         reader.onload = function() {
+             let imagePreview = document.getElementById("product-image-preview");
+             imagePreview.src = reader.result;
+         }
+         console.log(image);
+         reader.readAsDataURL(image[0]);
+     }
+ </script>
 @endsection 

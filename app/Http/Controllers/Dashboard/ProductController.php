@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\models\Product;
 use App\models\Category;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -69,6 +70,20 @@ class ProductController extends Controller
             $product->description = $request->input('description');
             $product->price = $request->input('price');
             $product->category_id = $request->input('category_id');
+
+            if ($request -> input('recommend') =='on') {
+                $product -> recommend_flag = true;
+            }else {
+                $product -> recommend_flag = false;
+            }
+
+            if ($request->file('image') !== null) {
+                $image = $request->file('image')->store('public/products');
+                 $product->image = basename($image);
+            } else {
+                 $product->image = '';
+            }
+
             $product->save();
             
             return redirect()->route('dashboard.products.index');
@@ -123,6 +138,20 @@ class ProductController extends Controller
             $product->description = $request->input('description');
             $product->price = $request->input('price');
             $product->category_id = $request->input('category_id');
+
+            if ($request -> input('recommend') =='on') {
+                $product -> recommend_flag = true;
+            }else {
+                $product -> recommend_flag = false;
+            }
+
+            if ($request -> hasFile('image')) {
+                $image = $request -> file('image') -> store('public/products');
+                $product -> image = basename($image);
+            }else {
+                $product -> image = ' ';
+            }
+
             $product->update();
             
             return redirect()->route('dashboard.products.index');
