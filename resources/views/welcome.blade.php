@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -7,10 +7,10 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet"> -->
 
         <!-- Styles -->
-        <style>
+        <!-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -96,4 +96,35 @@
             </div>
         </div>
     </body>
-</html>
+</html>  --> 
+
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href = "{{ asset('css/encoach.css')}}" rel = "stylesheet">
+    </head>
+    <body>
+        <header class="toppage">
+            <h1>encoach</h1>
+            <nav>
+            <a class="btn btn-link encoach-login-login" href="{{ route('login') }}">
+                            ログイン
+                        </a>
+            </nav>
+        </header>
+        
+        <section class="topimage">
+            <div class="inner">
+            <h1>コーチやメンターを探している人と<br>コーチができる人を繋げる<br>サービスです</h1>
+                    <div class="form-group">
+                        <a class="btn encoach-submit-button" href="{{ route('register') }}">
+                            新規登録
+                        </a>
+                    </div>
+            </div>
+        </section>

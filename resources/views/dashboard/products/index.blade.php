@@ -4,7 +4,7 @@
 <h1>商品管理</h1>
 
 
-<div class="w-100 mt-5">
+<div class="w-100 mt-5 my-5">
     <div class="w-100">
         <form method="GET" action="{{ route('dashboard.products.index') }}">
             <div class="flex-inline form-group">
@@ -35,9 +35,9 @@
                     <th scope="row" class="ps-0">{{ $product->id }}</td>
                     <td>
                         @if($product -> image !== "")
-                        <img src="{{ asset('storage/products/'.$product ->image) }}" class ="w-80 img-fluid">
+                        <img src="{{ asset('storage/products/'.$product ->image) }}" class ="w-100 img-fluid">
                         @else
-                        <img src="{{ asset('img/dummy.jpg')}}" class="w-80 img-fuild">
+                        <img src="{{ asset('img/dummy.jpg')}}" class="w-100 img-fuild">
                         @endif
                     </td>
 
