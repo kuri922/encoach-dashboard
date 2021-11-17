@@ -110,7 +110,7 @@
     </head>
     <body>
         <header class="toppage">
-            <h1>encoach</h1>
+            <h1>encoach 管理者画面</h1>
             <nav>
             <a class="btn btn-link encoach-login-login" href="{{ route('login') }}">
                             ログイン
