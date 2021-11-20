@@ -47,11 +47,11 @@ return [
                   ],
             
 
-        'api' => [
+         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'admins',
             'hash' => false,
-        ],
+         ],
     ],
 
     /*
@@ -71,22 +71,23 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
+     'providers' => [
+         'users' => [
+             'driver' => 'eloquent',
+             'model' => App\User::class,
+         ],
 
         'admins' => [
                   'driver' => 'eloquent',
                  'model' => App\Admin::class,
-                   ]
+        ],
 
-        // 'users' => [
+  // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ],
+
+  ],
 
     /*
     |--------------------------------------------------------------------------
@@ -104,8 +105,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
         ],
