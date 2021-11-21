@@ -15,22 +15,27 @@
      return view('welcome');
  });
 
-Route::get('products', 'ProductController@index')->name('products.index');
-Route::get('products/{product}', 'ProductController@show')->name('products.show');
+ Route::get('products', 'ProductController@index')->name('products.index');
+ Route::get('products/{product}', 'ProductController@show')->name('products.show');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth:admins');
 
-
+Route::get('login', 'Dashboard\Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Dashboard\Auth\LoginController@login')->name('login');
 
  Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
-    Route::get('login', 'Dashboard\Auth\LoginController@showLoginForm')->name('login');
-    Route::post('login', 'Dashboard\Auth\LoginController@login')->name('login');
 
-    Route::resource('products', 'Dashboard\ProductController')->middleware('auth:admins');
+    // 管理者
+   
+        
+        Route::resource('products', 'Dashboard\ProductController')->middleware('auth:admins');
+    });
+
+    // スーパー管理者
+    // Route::group(['middleware' => ['auth', 'can:system-only']], function () {
 
         Route::resource('categories', 'Dashboard\CategoryController')->middleware('auth:admins');
 
@@ -38,10 +43,8 @@ Route::get('/dashboard', 'DashboardController@index')->middleware('auth:admins')
 
         Route::resource('products', 'Dashboard\ProductController')->middleware('auth:admins');
     
-
         Route::resource('users', 'Dashboard\UserController')->middleware('auth:admins');
 
         Route::resource('admins', 'Dashboard\AdminslistController')->middleware('auth:admins');
 
-
-});
+    // });

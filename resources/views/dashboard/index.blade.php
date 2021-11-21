@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="w-75">
+<!-- <div class="w-75">
  
      @if($sort == 'month')
          <h1>月別売上 {{ $total }} 件</h1>
@@ -46,5 +46,5 @@
      </div>
  
      {{ $paginator->links() }}
- </div>
+ </div> -->
 @endsection 
