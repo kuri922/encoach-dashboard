@@ -23,13 +23,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth:admins');
 
-Route::get('login', 'Dashboard\Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Dashboard\Auth\LoginController@login')->name('login');
+
 
  Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
 
     // 管理者
-   
+    Route::get('login', 'Dashboard\Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Dashboard\Auth\LoginController@login')->name('login');
         
         Route::resource('products', 'Dashboard\ProductController')->middleware('auth:admins');
     });

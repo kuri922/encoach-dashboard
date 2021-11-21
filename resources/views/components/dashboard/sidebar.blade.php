@@ -1,6 +1,6 @@
 <div class="container ml-3">
 
-    <!-- @can('system-only')  -->
+    
     <h2>商品管理</h2>
     <div class="d-flex flex-column">
   
@@ -22,11 +22,11 @@
         <a href="/dashboard/admins">管理者一覧</a>
         </label>
 
-    <!-- @elsecan -->
+   
         <lavel class="encoach-sidebar-category-label">
                 <a href="/dashboard/products">商品一覧</a>
         </label>
         </div>
-    <!-- @endcan -->
+  
     </div>
 </div>
