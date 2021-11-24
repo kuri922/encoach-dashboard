@@ -36,7 +36,6 @@ class UserController extends Controller
         }
         $user -> update( );
         
-        return redirect( ) -> route('dashboard.users.index');
-
+        return redirect("/dashboard/users");
     }
 }

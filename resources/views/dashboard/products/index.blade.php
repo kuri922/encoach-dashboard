@@ -6,13 +6,13 @@
 
 <div class="w-100 mt-5 my-5">
     <div class="w-100">
-        <form method="GET" action="{{ route('dashboard.products.index') }}">
+        <form method="GET" action="/dashboard/products">
             <div class="flex-inline form-group">
                 <div class="d-flex align-items-center">
                   
     
 
-        <a href="{{ route('dashboard.products.create') }}" class="btn encoach-submit-button">+ 新規作成</a>
+        <a href="/dashboard/products" class="btn encoach-submit-button">+ 新規作成</a>
     </div>
     <div class="table-responsive">
         <table class="table fixed-table mt-2">

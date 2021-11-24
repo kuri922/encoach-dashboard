@@ -6,14 +6,14 @@
     <h1>顧客一覧</h1>
 
     <div class="w-75">
-        <form method="GET" action="{{ route('dashboard.users.index') }}">
+        <form method="GET" action="/dashboard/users">
             <div class="d-flex flex-inline form-group">
                 <div class="d-flex align-items-center">
                     ID・氏名
                 </div>
                 <textarea id="search-products" name="keyword" class="form-controll ml-2 w-50">{{$keyword}}</textarea>
             </div>
-            <button type="submit" class="btn samazon-submit-button">検索</button>
+            <button type="submit" class="btn encoach-submit-button">検索</button>
         </form>
     </div>
 

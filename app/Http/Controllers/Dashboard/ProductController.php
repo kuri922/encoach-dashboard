@@ -154,7 +154,7 @@ class ProductController extends Controller
 
             $product->update();
             
-            return redirect()->route('dashboard.products.index');
+            return redirect("/dashboard/products");
     }
 
     /**
@@ -167,7 +167,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-         return redirect()->route('dashboard.products.index');
-      
+        return redirect("/dashboard/products");
     }
 }

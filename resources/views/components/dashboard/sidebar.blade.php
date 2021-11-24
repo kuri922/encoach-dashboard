@@ -1,10 +1,10 @@
-<div class="container ml-3">
 
-    @can('system-only') 
+
+<div class="container ml-3">
     <h2>商品管理</h2>
     <div class="d-flex flex-column">
 
-
+    @can('system-only') 
         <label class="encoach-sidebar-category-label">
             <a href="/dashboard/major_categories">親カテゴリ管理</a>
         </label>
@@ -31,8 +31,7 @@
             <lavel class="encoach-sidebar-category-label">
                     <a href="/dashboard/products">商品一覧</a>
             </label>
-            
+            @endcan
         </div>
     </div>
-    @endcan
 </div>

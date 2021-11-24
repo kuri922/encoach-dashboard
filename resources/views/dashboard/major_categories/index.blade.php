@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="w-75">
+<div class="w-100">
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

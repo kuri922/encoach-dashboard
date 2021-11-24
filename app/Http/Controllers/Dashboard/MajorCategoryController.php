@@ -15,7 +15,7 @@ class MajorCategoryController extends Controller
      */
     public function index()
     {
-    dump('test');
+    
         $major_categories = MajorCategory :: paginate(15);
         
         return view('dashboard.major_categories.index' , compact('major_categories'));
