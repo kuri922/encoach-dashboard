@@ -12,7 +12,7 @@
                   
     
 
-        <a href="/dashboard/products" class="btn encoach-submit-button">+ 新規作成</a>
+        <a href="/dashboard/products/create" class="btn encoach-submit-button">+ 新規作成</a>
     </div>
     <div class="table-responsive">
         <table class="table fixed-table mt-2">

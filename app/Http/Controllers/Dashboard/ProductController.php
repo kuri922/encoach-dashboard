@@ -42,6 +42,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $product = new Product();
 
          return view('dashboard.products.create', compact('categories'));
     }
@@ -86,7 +87,7 @@ class ProductController extends Controller
 
             $product->save();
             
-            return redirect()->route('dashboard.products.index');
+            return redirect("/dashboard/products");
             }
     
 
