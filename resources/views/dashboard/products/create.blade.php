@@ -36,12 +36,15 @@
                 @endforeach
             </select>
         </div>
-
-        <div class="form-inline mt-4 mb-4 row">
+       
+          <div class="form-inline mt-4 mb-4 row">
              <label for="product-image" class="col-2 d-flex justify-content-start">画像</label>
-             <img src="#" id="product-image-preview">
-             <input type="file" name="image" id="product-image">
-         </div>
+
+             <label for="product-image" class="btn encoach-submit-button">画像を選択</label>
+                    <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
+                    <small class="mb-3 mx-4">600px × 600px推奨</small>
+                        <img src="#" id="product-image-preview"> 
+         </div>  
 
             <div class="form-inline mt-4 mb-4 row">
                 <label for="product-price" class="col-2 d-flex justify-content-start">オススメ?</label>
@@ -50,8 +53,8 @@
             
        
         <div class="form-inline mt-4 mb-4 row">
-            <label for="product-description" class="col-1 d-flex justify-content-start align-self-start">商品説明</label>
-            <textarea name="description" id="product-description" class="form-control col-8 ps-2" rows="10"></textarea>
+            <label for="product-description" class="col-2 d-flex justify-content-start align-self-start">商品説明</label>
+            <textarea name="description" id="product-description" class="form-control col-8 ps-4" rows="10"></textarea>
         </div>
         <div class="d-flex justify-content-center">
             <button type="submit" class="w-25 btn encoach-submit-button">商品を登録</button>
@@ -63,7 +66,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
      $("#product-image").change(function() {
          if (this.files && this.files[0]) {
              let reader = new FileReader();
@@ -73,5 +76,5 @@
             reader.readAsDataURL(this.files[0]);
          }
      });
- </script>
+ </script> 
 @endsection 

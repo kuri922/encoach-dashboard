@@ -149,6 +149,8 @@ class ProductController extends Controller
             if ($request -> hasFile('image')) {
                 $image = $request -> file('image') -> store('public/products');
                 $product -> image = basename($image);
+            }else if (isset($product -> image)) {
+                
             }else {
                 $product -> image = ' ';
             }
