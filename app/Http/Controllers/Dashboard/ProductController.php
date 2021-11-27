@@ -78,12 +78,22 @@ class ProductController extends Controller
                 $product -> recommend_flag = false;
             }
 
-            if ($request->file('image') !== null) {
-                $image = $request->file('image')->store('public/products');
-                 $product->image = basename($image);
-            } else {
-                 $product->image = '';
-            }
+            //   if ($request->file('image') !== null) {
+            //       $image = $request->file('image')->store('public/products');
+            //        $product->image = basename($image);
+            //   } else {
+            //       $path = Storage::disk('s3')->putFile('encoach/', $image, 'public');
+            //       $product->image = Storage::disk('s3')->url($image);
+            // }
+                  
+              
+            
+                // 画像アップロード
+             if($request->file('image') !==null) {
+             $image = $request->file('image');
+             $image = Storage::disk('s3')->putfile('encoach/', $image, 'public');
+             $product->image = Storage::disk('s3')->url($image);
+             }
 
             $product->save();
             
@@ -146,15 +156,13 @@ class ProductController extends Controller
                 $product -> recommend_flag = false;
             }
 
-            if ($request -> hasFile('image')) {
-                $image = $request -> file('image') -> store('public/products');
-                $product -> image = basename($image);
-            }else if (isset($product -> image)) {
-                
-            }else {
-                $product -> image = ' ';
-            }
+            if($request->file('image') !==null) {
+                $image = $request->file('image');
+                $path = Storage::disk('s3')->putfile('encoach/', $image, 'public');
+                $avatarPath = Storage::disk('s3')->url($image);
+                }
 
+            
             $product->update();
             
             return redirect("/dashboard/products");

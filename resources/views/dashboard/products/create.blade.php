@@ -37,15 +37,13 @@
             </select>
         </div>
        
-          <div class="form-inline mt-4 mb-4 row">
-             <label for="product-image" class="col-2 d-flex justify-content-start">画像</label>
-
-             <label for="product-image" class="btn encoach-submit-button">画像を選択</label>
-                    <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
-                    <small class="mb-3 mx-4">600px × 600px推奨</small>
-                        <img src="#" id="product-image-preview"> 
-         </div>  
-
+        <div class="form-inline mt-4 mb-4 row">
+            <label for="product-image" class="col-2 d-flex justify-content-start">画像</label>
+            <img src="#" id="product-image-preview">
+            <!-- <input type="file" name="image" id="product-image"> -->
+            <input type="file" name="image"  id="product-image">
+        </div>
+        
             <div class="form-inline mt-4 mb-4 row">
                 <label for="product-price" class="col-2 d-flex justify-content-start">オススメ?</label>
                 <input type="checkbox" name="recommend" id="product-recommend" class="encoach-check-box">

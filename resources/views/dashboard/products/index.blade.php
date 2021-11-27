@@ -34,11 +34,12 @@
                 <tr>
                     <th scope="row" class="ps-0">{{ $product->id }}</td>
                     <td>
-                        @if($product -> image !== "")
-                        <img src="{{ asset('storage/products/'.$product ->image) }}" class ="w-100 img-fluid">
+                        <!-- 画像表示 -->
+                    @if($product -> image !== "") 
+                        <img src="{{ $product['image'] }}" class="w-100 img-fuild">
                         @else
                         <img src="{{ asset('img/dummy.jpg')}}" class="w-100 img-fuild">
-                        @endif
+                    @endif
                     </td>
 
                     <td class="p-5">{{ $product->name }}</td>

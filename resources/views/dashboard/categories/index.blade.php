@@ -41,13 +41,13 @@
 
          
         </div>
-        <button type="submit" class="btn samazon-submit-button">＋新規作成</button>
+        <button type="submit" class="btn encoach-submit-button">＋新規作成</button>
     </form>
 
     <table class="table mt-5">
         <thead>
             <tr>
-                <th scope="col" class="w-25">ID</th>
+                <td scope="col" class="w-25">ID</td>
                 <th scope="col">カテゴリ</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -56,7 +56,7 @@
         <tbody>
             @foreach($categories as $category)
             <tr>
-                <th scope="row">{{ $category->id }}</td>
+                <th scope="row">{{ $category->id }}</th>
                 <td>{{ $category->name }}</td>
                 <td>
                     <a href="/dashboard/categories/{{ $category->id }}/edit" class="dashboard-edit-link">編集</a>

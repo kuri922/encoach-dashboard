@@ -35,7 +35,7 @@ Route::post('login', 'Dashboard\Auth\LoginController@login')->name('login');
 // 管理者
 Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
 
-    Route::resource('/dashbord/products', 'Dashboard\ProductController');
+    Route::resource('/dashboard/products', 'Dashboard\ProductController');
  
 });
 
@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'can:system-only']], function () {
 
     Route::resource('/dashboard/major_categories','Dashboard\MajorCategoryController')
     ;
-    Route::resource('/dashboard/products','Dashboard\ProductController');
+    //  Route::resource('/dashboard/products','Dashboard\ProductController');
      
     Route::resource('/dashboard/users','Dashboard\UserController');
 
