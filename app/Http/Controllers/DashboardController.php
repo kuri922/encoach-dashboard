@@ -12,7 +12,7 @@ class DashboardController extends Controller
         {
             // return view('dashboard.index');
 
-            $page = $request->page != null ? $request->page : 1;
+        $page = $request->page != null ? $request->page : 1;
          $sort = $request->sort;
          $billings = [];
          if ($request->sort == 'month') {

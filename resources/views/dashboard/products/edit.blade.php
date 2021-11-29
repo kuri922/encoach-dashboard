@@ -42,11 +42,10 @@
 
         <div class="form-inline mt-4 mb-4 row">
             <label class="col-2 d-flex justify-content-start">画像</label>
-            @if($product -> image !==null)
-            <img src="{{$product['image']}}" class="w-50 img-fluid">
-            @endif
+                @if($product -> image !==null)
+                    <img src="{{$product['image']}}" class="w-50 img-fluid">
+                @endif
             <div class="d-flex flex-colimn ml-2">
-                
                 <label for="product-image" class="btn encoach-submit-button">画像を選択</label>
                 <input type="file" name="image" id="product-image" onChange="handleImage(this.files)" style="display: none;">
                 <small class="mb-3 mx-4">600px × 600px推奨</small>
@@ -55,11 +54,11 @@
 
         <div class="form-inline mt-4 mb-4 row">
                 <label for="product-price" class="col-2 d-flex justify-content-start">オススメ?</label>
-            @if ($product->recommend_flag)
-                <input type="checkbox" name="recommend" id="product-recommend" class="samazon-check-box" checked>
-            @else
-                <input type="checkbox" name="recommend" id="product-recommend" class="encoach-check-box">
-            @endif
+                    @if ($product->recommend_flag)
+                        <input type="checkbox" name="recommend" id="product-recommend" class="samazon-check-box" checked>
+                    @else
+                        <input type="checkbox" name="recommend" id="product-recommend" class="encoach-check-box">
+                    @endif
         </div>
 
 

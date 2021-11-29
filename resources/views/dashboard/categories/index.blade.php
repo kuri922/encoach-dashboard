@@ -17,29 +17,27 @@
             <label for="category-name">カテゴリ名</label>
             <input type="text" name="name" id="category-name" class="form-control @error('name') is-invalid @enderror ">
             @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>入力されていません。</strong>
-                    </span>
-                    @enderror
+                <span class="invalid-feedback" role="alert">
+                    <strong>入力されていません。</strong>
+                </span>
+            @enderror
         </div>
         <div class="form-group">
             <label for="category-description">カテゴリの説明</label>
             <textarea name="description" id="category-description" class="form-control @error('description') is-invalid @enderror "></textarea>
             @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>入力されていません。</strong>
-                    </span>
-                    @enderror
+                <span class="invalid-feedback" role="alert">
+                    <strong>入力されていません。</strong>
+                </span>
+            @enderror
         </div>
         <div class="form-group">
-        <label for="category-major-category">親カテゴリ名</label>
-        <select name="major_category_id" class="form-control col-8" id="category-major-category">
-            @foreach ($major_categories as $major_category)
-            <option value="{{ $major_category->id }}">{{ $major_category->name }}</option>
-            @endforeach
-        </select>
-
-         
+            <label for="category-major-category">親カテゴリ名</label>
+            <select name="major_category_id" class="form-control col-8" id="category-major-category">
+                @foreach ($major_categories as $major_category)
+                    <option value="{{ $major_category->id }}">{{ $major_category->name }}</option>
+                @endforeach
+            </select>
         </div>
         <button type="submit" class="btn encoach-submit-button">＋新規作成</button>
     </form>

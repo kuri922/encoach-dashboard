@@ -56,16 +56,6 @@ class MajorCategoryController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\models\MajorCategory  $majorCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MajorCategory $majorCategory)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

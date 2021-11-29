@@ -21,17 +21,17 @@ class ProductController extends Controller
             $products = Product :: where('category_id' , $request -> category) -> paginate(10);
             $total_count = Product :: where('category_id' , $request -> category) -> count( );
             $category = Category :: find($request -> category);
-    }   else {
+        }  else {
             $products = Product :: paginate(15);
             $total_count = "";
             $category = null;
-    }
+            }
 
-    $categories = Category :: all( );
-    $major_category_names = Category :: pluck('major_category_name') -> unique( );
+            $categories = Category :: all( );
+            $major_category_names = Category :: pluck('major_category_name') -> unique( );
 
-    return view('dashboard.products.index' , compact('products' , 'category' , 'categories' ,'major_category_names' , 'total_count'));
-}
+            return view('dashboard.products.index' , compact('products' , 'category' , 'categories' ,'major_category_names' , 'total_count'));
+}   
     
 
     /**
@@ -56,7 +56,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-             'name' => 'required',
+            'name' => 'required',
             'price' => 'required',
             'description' => 'required',
              ],
@@ -74,42 +74,21 @@ class ProductController extends Controller
 
             if ($request -> input('recommend') =='on') {
                 $product -> recommend_flag = true;
-            }else {
+            } else {
                 $product -> recommend_flag = false;
             }
-
-            //   if ($request->file('image') !== null) {
-            //       $image = $request->file('image')->store('public/products');
-            //        $product->image = basename($image);
-            //   } else {
-            //       $path = Storage::disk('s3')->putFile('encoach/', $image, 'public');
-            //       $product->image = Storage::disk('s3')->url($image);
-            // }
-                  
-              
             
                 // 画像アップロード
              if($request->file('image') !==null) {
-            $image = $request->file('image');
-            $image = Storage::disk('s3')->putfile('/encoach', $image, 'public');
-             $product->image = Storage::disk('s3')->url($image);
+                $image = $request->file('image');
+                $image = Storage::disk('s3')->putfile('/encoach', $image, 'public');
+                $product->image = Storage::disk('s3')->url($image);
              }
             $product->save();
             
             return redirect("/dashboard/products");
-            }
-    
+     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -135,7 +114,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-             'price' => 'required',
+            'price' => 'required',
             'description' => 'required',
             ],
             [
@@ -151,7 +130,7 @@ class ProductController extends Controller
 
             if ($request -> input('recommend') =='on') {
                 $product -> recommend_flag = true;
-            }else {
+            } else {
                 $product -> recommend_flag = false;
             }
 
