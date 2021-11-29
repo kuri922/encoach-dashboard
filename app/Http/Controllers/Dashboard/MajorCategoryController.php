@@ -95,7 +95,7 @@ class MajorCategoryController extends Controller
             'name.required' => '親カテゴリ名は必須です。',
         ]);
        
-        $major_category1 = MajorCategory :: find($major_category -> id);
+        $major_category = MajorCategory :: find($major_category -> id);
         $major_category -> name = $request -> input('name');
         $major_category -> update( );
 

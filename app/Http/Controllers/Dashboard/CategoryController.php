@@ -97,14 +97,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required|unique:categories',
-            'description' => 'required',
-        ],
-        [
-            'name.required' => 'カテゴリ名は必須です。',
-            'description.required' => 'カテゴリの説明は必須です。',
-        ]);
+        
 
 
         $category -> name = $request -> input('name');

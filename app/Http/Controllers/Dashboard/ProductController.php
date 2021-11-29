@@ -90,11 +90,10 @@ class ProductController extends Controller
             
                 // 画像アップロード
              if($request->file('image') !==null) {
-             $image = $request->file('image');
-             $image = Storage::disk('s3')->putfile('encoach/', $image, 'public');
+            $image = $request->file('image');
+            $image = Storage::disk('s3')->putfile('/encoach', $image, 'public');
              $product->image = Storage::disk('s3')->url($image);
              }
-
             $product->save();
             
             return redirect("/dashboard/products");
@@ -156,10 +155,10 @@ class ProductController extends Controller
                 $product -> recommend_flag = false;
             }
 
-            if($request->file('image') !==null) {
+            if($request->hasfile('image')) {
                 $image = $request->file('image');
-                $path = Storage::disk('s3')->putfile('encoach/', $image, 'public');
-                $avatarPath = Storage::disk('s3')->url($image);
+                $image = Storage::disk('s3')->putfile('/encoach', $image, 'public');
+                $product->image = Storage::disk('s3')->url($image);
                 }
 
             

@@ -27,7 +27,7 @@
             </label>
 
             @elsecan('admin-higher')
-            <h2>商品管理</h2>
+           
             <lavel class="encoach-sidebar-category-label">
                     <a href="/dashboard/products">商品一覧</a>
             </label>

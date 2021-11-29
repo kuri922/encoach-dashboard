@@ -20,8 +20,8 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">画像</th>
-                    <th scope="col">商品名</th>
+                    <th >画像</th>
+                    <th scope="col">商品</th>
                     <th scope="col">価格</th>
                     <th scope="col">カテゴリ名</th>
                     <th scope="col">親カテゴリ名</th>
@@ -32,20 +32,21 @@
             <tbody>
                 @foreach($products as $product)
                 <tr>
-                    <th scope="row" class="ps-0">{{ $product->id }}</td>
+                    <th cscope="row" class="ps-5">{{ $product->id }}</td>
                     <td>
                         <!-- 画像表示 -->
                     @if($product -> image !== "") 
-                        <img src="{{ $product['image'] }}" class="w-100 img-fuild">
+                        <img src="{{$product['image']}}" class="w-50 img-fluid">
                         @else
-                        <img src="{{ asset('img/dummy.jpg')}}" class="w-100 img-fuild">
+                        <img src="{{ asset('img/dummy.jpg')}}" class="w-50 img-fuild">
                     @endif
                     </td>
 
-                    <td class="p-5">{{ $product->name }}</td>
-                    <td class="p-5">{{ $product->price }}</td>
-                    <td class="p-5">{{ $product->category["name"] }}</td>
-                    <td class="p-5">{{ $product->category["major_category_name"] }}</td>
+                    <td class="p-4">{{ $product->name }}</td>
+                    <td class="p-4">{{ $product->price }}</td>
+                    <td class="p-4">{{ $product->price }}</td>
+                    <td class="p-4">{{ $product->category["name"] }}</td>
+                    <td class="p-4">{{ $product->category["major_category_name"] }}</td>
                     <td>
                         <a href="/dashboard/products/{{ $product->id }}/edit" class="dashboard-edit-link">編集</a>
                     </td>
