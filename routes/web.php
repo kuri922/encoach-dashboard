@@ -53,3 +53,7 @@ Route::group(['middleware' => ['auth', 'can:system-only']], function () {
     Route::resource('/dashboard/admins', 'Dashboard\AdminslistController');
 
 });
+
+if (env('APP_ENV') === 'production') {
+    URL::forceScheme('https');
+}
