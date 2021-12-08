@@ -12,7 +12,7 @@
         </div>
     @endif
     <form method="POST" action="/dashboard/categories">
-        {{ csrf_field() }}
+    {{ csrf_field() }}
         <div class="form-group">
             <label for="category-name">カテゴリ名</label>
             <input type="text" name="name" id="category-name" class="form-control @error('name') is-invalid @enderror ">

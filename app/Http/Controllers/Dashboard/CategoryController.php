@@ -25,16 +25,7 @@ class CategoryController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -64,16 +55,7 @@ class CategoryController extends Controller
         return redirect("/dashboard/categories");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -98,8 +80,6 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         
-
-
         $category -> name = $request -> input('name');
         $category->description = $request->input('description');
         $category->major_category_id = $request->input('major_category_id');
