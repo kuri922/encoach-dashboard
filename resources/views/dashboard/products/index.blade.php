@@ -30,7 +30,7 @@
                     <td>
                         <!-- 画像表示 -->
                         @if($product -> image !== "") 
-                            <img src="{{$product['image']?? '' }}" class="w-50 img-fluid">
+                            <img src="{{$product['image']}}" class="w-50 img-fluid">
                         @else
                             <img src="{{ asset('img/dummy.jpg')}}" class="w-50 img-fuild">
                         @endif
